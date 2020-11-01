@@ -28,7 +28,6 @@ body{
 	background: url(../img/bg.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center;
 	height: 500px;
 	position: relative;
 	text-align: center;
@@ -452,7 +451,7 @@ body{
 
 
 
-
+/*mobile menu*/
 
 
 .btn-mobile{
@@ -478,53 +477,70 @@ body{
 .btn-lines:first-child{
 	margin-top: 0;
 }
-.btn-active .btn-lines:nth-child(2){
+.active .btn-lines:nth-child(2){
 	display: none;
 }
-.btn-active .btn-lines:nth-child(1){
+.active .btn-lines:nth-child(1){
 	transform: rotate(-45deg);
 	margin: 0 0 -11px 0;
 }
-.btn-active .btn-lines:nth-child(3){
+.active .btn-lines:nth-child(3){
 	transform: rotate(45deg);
 }
 
 
-.nav{
-	transition: 0.3s all;
-	position: fixed;;
-	background: rgba(0, 0, 0, 0.8);
-}
-.nav-active{
+.bg-menu{
+	transition: 0.3s;
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	background: linear-gradient(45deg, #00c6fb, #005bea);
 	top: 0;
-	left:0;
-	right: 0;
 	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+.active .bg-menu{
+	opacity: 1;
+	visibility: visible;
+}
+.btn-mobile{
+	z-index: 2;
+	display: none;
 }
 .menu-mobile{
-	display: none;
-	align-items: center;
-	flex-direction: column;
+	z-index: 3;
 	position: fixed;
 	left: 50%;
-	top: -50%;
-	transform: translate(-50%, -50%);
-	transition: 0.3s all;
+	top:-50%;
+	transform: translate(-50%, -60%);
+	transition: 0.3s;
+	text-align: left;
 }
-.menu-mobile-active{
-	top: 50%;
-	position: relative;
+.active .menu-mobile{
+	top:50%;
 }
-.menu-list{
-	padding: 15px;	
-	cursor: pointer;
+.mobile-menu-list{
+	z-index: 4;
+	margin-bottom: 15px;
 }
-.menu-list:hover {
-	border-bottom: 1px solid #fff;
-	border-top: 1px solid #fff;
+.menu-link{
+	z-index: 5;
+	color: #fff;
+	font-size: 20px;
 }
 
+.menu-logo{
+	color: #fff;
+	font-size: 30px;
+	font-weight: 700;
+	position: absolute;
+	top: -94%;
+	left: -62%;
+}
 
+/*mobile menu*/
 
 
 
@@ -664,6 +680,9 @@ body{
 	.header-menu{
 		display: none;
 	}
+	.btn-mobile{
+		display: flex;
+	}
 	.email{
 		display: none;
 	}
@@ -733,7 +752,7 @@ body{
 		height: 300px;
 	}
 	.header-phone{
-		font-size: 13px;
+		font-size: 15px;
 	}
 	.contact-wrap{
 		margin-bottom: 6px;
@@ -811,5 +830,8 @@ body{
 	}
 	.head-btn{
 		display: block;
+	}
+	.header{
+		background-position: 68%;
 	}
 }

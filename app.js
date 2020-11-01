@@ -41,19 +41,14 @@ $(document).ready(function(){
 
 
 
-const btn = document.querySelector(".btn-mobile");
-const menuCentr = document.querySelector('.menu-mobile');
-const menuLink = document.querySelectorAll('.menu-link');
+const buttons = document.querySelectorAll('.btn-mobile');
+const nav = document.querySelector('.nav');
+const formClose = document.querySelectorAll('.close');
 
-btn.onclick = () =>{
-    btn.classList.toggle('btn-active');
-    menuCentr.classList.toggle('menu-mobile-active');
-    menu.classList.toggle('nav-active');
-};
+buttons.forEach(button => button.addEventListener("click", function() {
+    nav.classList.toggle('active');
+}));
 
-menuLink.forEach(function(item){
-    item.addEventListener('click', function(){
-        menuCentr.classList.toggle('menu-mobile-active');
-        menu.classList.toggle('nav-active');
-    })
-})
+formClose.forEach(closeForm  => closeForm.addEventListener("click", function() {
+    nav.classList.remove('active');
+}));
