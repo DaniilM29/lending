@@ -1,46 +1,10 @@
-$(document).ready(function(){
-  $(".owl-carousel").owlCarousel({
-    nav: false,
-    center: true,
-    items: 3,
-    loop: true,
-    dots:true,
-    autoplay: false,
-    autoplayTimeout:4000,
-    autoplayHoverPause: true,
-    autoplaySpeed:2500,
-    dotsSpeed: 1500,
-     responsive:{
-        0:{
-            items:1
-        },
-        500:{
-            items:1
-        },
-         600:{
-            items:2
-        },
-        769:{
-            items:2
-        },
-         880:{
-            items:3
-        },
-        992:{
-            items:3
-        },
-        1000:{
-            items:3
-        }
-    }
-  });
-});
 
 
 
 
 
 
+/*Mobile Menu*/
 const buttons = document.querySelectorAll('.btn-mobile');
 const nav = document.querySelector('.nav');
 const formClose = document.querySelectorAll('.close');
@@ -52,3 +16,19 @@ buttons.forEach(button => button.addEventListener("click", function() {
 formClose.forEach(closeForm  => closeForm.addEventListener("click", function() {
     nav.classList.remove('active');
 }));
+
+/*Mobile Menu*/
+
+
+
+
+/*Прокрутка до якоря*/
+$(document).ready(function(){
+    $('a[href^="#"], *[data-href^="#"]').on('click', function(e){
+        e.preventDefault();
+        var t = 800;
+        var d = $(this).attr('data-href') ? $(this).attr('data-href') : $(this).attr('href');
+        $('html,body').stop().animate({ scrollTop: $(d).offset().top }, t);
+    });
+});
+/*Прокрутка до якоря*/
